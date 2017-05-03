@@ -5,7 +5,19 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script src="env.js"></script>
+<script>
+// Initialize Firebase
+	var config = {
+		apiKey: API_KEY,
+		authDomain: "tinder-of-csa.firebaseapp.com",
+		databaseURL: "https://tinder-of-csa.firebaseio.com",
+		projectId: "tinder-of-csa",
+		storageBucket: "tinder-of-csa.appspot.com",
+		messagingSenderId: "153293664597"
+	};
+	firebase.initializeApp(config);
+</script>
 </body>
 </html>
