@@ -32,7 +32,7 @@ limitations under the License.
   <script src="/__/firebase/3.9.0/firebase-app.js"></script>
   <script src="/__/firebase/3.9.0/firebase-auth.js"></script>
   <script src="/__/firebase/init.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="style.css">
    <script type="text/javascript">
     /**
      * Handles the sign in button press.  dfdfd
@@ -160,17 +160,29 @@ limitations under the License.
           // if (!emailVerified) {
           //   document.getElementById('quickstart-verify-email').disabled = false;
           // }
+
+           document.getElementById('member-content').textContent = 'Member Only Statement!';
+           document.getElementById('quickstart-sign-in2').disabled = true;
+          //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
+          if (!emailVerified) {
+            document.getElementById('quickstart-verify-email').disabled = false;
+          }
+         
           // [END_EXCLUDE]
         } else {
           // User is signed out.
           // [START_EXCLUDE]
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
           document.getElementById('quickstart-sign-in').textContent = 'Sign in';
+          document.getElementById('member-content').textContent = '';
+          document.getElementById('quickstart-sign-in2').disabled = false;
+
           //document.getElementById('quickstart-account-details').textContent = 'null';
           // [END_EXCLUDE]
         }
         // [START_EXCLUDE silent]
         document.getElementById('quickstart-sign-in').disabled = false;
+
         // [END_EXCLUDE]
       });
       // [END authstatelistener]
@@ -196,8 +208,10 @@ limitations under the License.
 
       <!-- Container for the demo -->
       
-        <div >
+
+        <div id="container">
           <p>Enter your email and password below</p>
+
 
           <input style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email"/>
           &nbsp;&nbsp;&nbsp;
@@ -207,20 +221,22 @@ limitations under the License.
          <!--  &nbsp;&nbsp;&nbsp; -->
           
           <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
-        </div>
+        <!-- </div> -->
 
-        <h2 >Google Authentication </h2>
-        <div>
+
+        <h1>Google Authentication </h1>
+        <!-- <div> -->
           <p>Please sign in with your Google account below.</p>
 
           <!-- Button that handles sign-in/sign-out -->
-          <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in2">Sign in with Google</button>
+          <button id="quickstart-sign-in2" class="btn">Sign in with Google</button>
+
           <!-- Container where we'll display the user details -->
           
-          <div>
-            Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-            <pre><code id="quickstart-account-details"></code></pre>
-          </div> 
+          <!-- <div> -->
+           <p>Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+            <pre><code id="quickstart-account-details"></code></pre></p>
+         <!--  </div> --> 
           </div>
 
         
