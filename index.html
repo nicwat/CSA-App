@@ -17,7 +17,7 @@ limitations under the License.
 <head>
   <meta charset=utf-8 />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email/Password Authentication Example</title>
+  <title>Tender</title>
 
   <!-- Material Design Theming -->
  <!--  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css"> -->
@@ -242,6 +242,19 @@ limitations under the License.
     </div>
   </main>
 </div>
-
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script src="env.js"></script>
+<script>
+// Initialize Firebase
+	var config = {
+		apiKey: API_KEY,
+		authDomain: "tinder-of-csa.firebaseapp.com",
+		databaseURL: "https://tinder-of-csa.firebaseio.com",
+		projectId: "tinder-of-csa",
+		storageBucket: "tinder-of-csa.appspot.com",
+		messagingSenderId: "153293664597"
+	};
+	firebase.initializeApp(config);
+</script>
 </body>
 </html>
