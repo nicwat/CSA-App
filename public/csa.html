@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="/__/firebase/3.9.0/firebase-app.js"></script>
+  <script src="/__/firebase/3.9.0/firebase-auth.js"></script>
+  <script src="/__/firebase/init.js"></script>
+	<script>
+function signOut() {
+	firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+  alert("Signed out");
+}).catch(function(error) {
+  // An error happened.
+});
+
+}
+
+function init() {
+	document.getElementById("sign-out").addEventListener("click", signOut, false);
+}
+window.onload=function() {
+	init();
+}
+</script>
+</head>
+<body>
+<button id="sign-out">Sign out</button>
+
+</script>
+</body>
+</html>
