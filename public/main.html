@@ -14,7 +14,6 @@
 				}).catch(function(error) {
 						// An error happened.
 				});
-
 			}	
 			function init() {
 				document.getElementById("sign-out").addEventListener("click", signOut, false);
@@ -36,12 +35,14 @@
 						var uid = user.uid;
 						var providerData = user.providerData;
 						// [START_EXCLUDE]
-						document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
+						//document.getElementById('quickstart-sign-in-status').textContent = 'Signed in!';
+						document.getElementById('users-name').textContent = displayName;
 						document.getElementById('quickstart-sign-in').textContent = 'Sign out';
 						window.location = 'main.html';
 
 						document.getElementById('member-content').textContent = 'Member Only Statement!';
 						document.getElementById('quickstart-sign-in2').disabled = true;
+						
 
 						if (!emailVerified) {
 		            		document.getElementById('quickstart-verify-email').disabled = false;
@@ -67,8 +68,7 @@
 	<body>
 		<div id="users-only">
 			<button id="sign-out">Sign out</button>
-			<p>Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-				<pre><code id="quickstart-account-details"></code></pre></p>
+				<p>Welcome, <span id="users-name">No User Name</span>!!</p>
 		</div>
 	</body>
 </html>
