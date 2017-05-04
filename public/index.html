@@ -145,21 +145,28 @@ limitations under the License.
           // [START_EXCLUDE]
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
           document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+           document.getElementById('member-content').textContent = 'Member Only Statement!';
+           document.getElementById('quickstart-sign-in2').disabled = true;
           //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
           if (!emailVerified) {
             document.getElementById('quickstart-verify-email').disabled = false;
           }
+         // document.write("You signed in!!!");
           // [END_EXCLUDE]
         } else {
           // User is signed out.
           // [START_EXCLUDE]
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
           document.getElementById('quickstart-sign-in').textContent = 'Sign in';
+          document.getElementById('member-content').textContent = '';
+          document.getElementById('quickstart-sign-in2').disabled = false;
+
           //document.getElementById('quickstart-account-details').textContent = 'null';
           // [END_EXCLUDE]
         }
         // [START_EXCLUDE silent]
         document.getElementById('quickstart-sign-in').disabled = false;
+
         // [END_EXCLUDE]
       });
       // [END authstatelistener]
@@ -208,7 +215,8 @@ limitations under the License.
           <div>
             Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
             <pre><code id="quickstart-account-details"></code></pre>
-          </div> 
+          </div>
+          <div><p id="member-content"></p>
           </div>
 
         
