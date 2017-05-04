@@ -6,7 +6,10 @@
   width: 300px;
   height: 400px;
   display: block;
-  background: #666;
+  background: green;
+  border: solid;
+  border-width: 4px;
+  border-color: black;
   -webkit-transform-origin: 50% 99%;
   transform-origin: 50% 99%;
   transition: .4s;
