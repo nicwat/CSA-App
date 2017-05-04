@@ -4,14 +4,74 @@
 
 /************ BODY ************/
 
+
+
 /************ FONTS ************/
+
+p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+}
 
 /************ HEADINGS ************/
 
+h1 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 28px;
+}
+
 /************ LINKS ************/
+
+a {
+	color: #f06560;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #E6B1A3;
+	text-decoration: none;
+}
 
 /************ CONTAINERS ************/
 
+
+
 /************ BUTTONS ************/
+.btn {
+  background: #80a7ad;
+  background-image: -webkit-linear-gradient(top, #80a7ad, #4d6269);
+  background-image: -moz-linear-gradient(top, #80a7ad, #4d6269);
+  background-image: -ms-linear-gradient(top, #80a7ad, #4d6269);
+  background-image: -o-linear-gradient(top, #80a7ad, #4d6269);
+  background-image: linear-gradient(to bottom, #80a7ad, #4d6269);
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #8fc6cf;
+  background-image: -webkit-linear-gradient(top, #8fc6cf, #568494);
+  background-image: -moz-linear-gradient(top, #8fc6cf, #568494);
+  background-image: -ms-linear-gradient(top, #8fc6cf, #568494);
+  background-image: -o-linear-gradient(top, #8fc6cf, #568494);
+  background-image: linear-gradient(to bottom, #8fc6cf, #568494);
+  text-decoration: none;
+}
+
+
+/************ IMAGE STYLING ************/
+.circle {
+	border-radius: 50%;
+	margin: 5px;
+}
 
 
