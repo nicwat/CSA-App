@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="csa.css">
 		<script src="/__/firebase/3.9.0/firebase-app.js"></script>
 		<script src="/__/firebase/3.9.0/firebase-auth.js"></script>
 		<script src="/__/firebase/3.9.0/firebase-database.js"></script>
@@ -9,7 +10,7 @@
 		<script src="/__/firebase/init.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
-        <script src="js/jquery.bxslider.min.js"></script>
+       	<script src="jquery-3.2.1.min.js"></script>
 		<script>
 			function signOut() {
 				firebase.auth().signOut().then(function() {
@@ -86,9 +87,9 @@
 	<body>
 	<h1 class="title">Farmer Jack's Tender</h1>
 		<div id="users-only" class="main">
-			<button id="sign-out">Sign out</button>
+			<button id="sign-out" class="btn">Sign out</button>
 				<p>Welcome, <span id="users-name"> </span>!!</p>
-             <ul class="bxslider">
+             <!-- <ul class="bxslider">
  				<li><img src="img_basket/apples.jpg" /></li>
   				<li><img src="img_basket/whitemushrooms.jpg" /></li>  
   				<li><img src="img_basket/tomatoes.jpg" /></li>  
@@ -97,7 +98,24 @@
 			<div id="item0"></div>
 			<div id="item1"></div>
 			<div id="item2"></div>
-			<div id="item3"></div>
-		</div>
+			<div id="item3"></div> -->
+		<!-- </div> -->
+
+		<div class="cardcontainer list">
+  <ul class="cardlist">
+   
+    <li class="card current"> <img src="img_basket/apples.jpg" alt="Apples" ></li>
+    <li class="card"><img src="img_basket/potatoes.jpg" alt="Potatoes" ></li>
+    <li class="card"><img src="img_basket/tomatoes.jpg" alt="Tomatoes" ></li>
+    <li class="card"><img src="img_basket/whitemushrooms.jpg" alt="Mushrooms"></li>
+    
+  </ul>
+  <button class="Reject">X</button>
+  <button class="Accept">✔</button>
+</div>
+</div>
+
+</body>
+ <script type="text/javascript" src=main.js></script>
 	</body>      
 </html>
