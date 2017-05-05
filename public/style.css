@@ -1,6 +1,7 @@
 /************ IMPORTS ************/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Courgette');
 
 /************ BODY ************/
 
@@ -24,6 +25,13 @@ h1 {
   font-size: 28px;
 }
 
+.title {
+  font-family: 'Courgette', cursive;
+  font-size: 80px;
+  color: #cccfae;
+  text-align: center;
+  margin-top:35px;
+}
 /************ LINKS ************/
 
 a {
@@ -44,6 +52,16 @@ a:visited {
 /************ CONTAINERS ************/
 
 #container {
+    width:75%;
+    margin:auto;
+    margin-top:30px;
+    padding: 0 25px 40px 10px;
+    background-color: white;
+    border:2px solid #4D6269;
+    border-radius:2px;
+}
+
+.main {
     width:75%;
     margin:auto;
     margin-top:70px;
