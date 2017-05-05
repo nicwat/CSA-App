@@ -30,6 +30,8 @@
 					// document.getElementById('quickstart-verify-email').disabled = true;
 					// [END_EXCLUDE]
 					if (user) {
+						
+
 						// User is signed in.
 
 						var displayName = user.displayName;
@@ -39,7 +41,7 @@
 						var isAnonymous = user.isAnonymous;
 						var uid = user.uid;
 						var providerData = user.providerData;
-						var userRef = firebase.database().ref("Yields/" + uid + "/");
+						var userRef = firebase.database().ref("Yields/" + uid + "/bounty");
 						// [START_EXCLUDE]
 						document.getElementById('users-name').textContent = displayName;
                         $('.bxslider').bxSlider({
@@ -49,13 +51,18 @@
 						
 						userRef.on("value", function(snapshot) {
 							var value = snapshot.val();
-							str = JSON.stringify(value);
-							var str2 = Object.values(value);
-						   console.log(value);
-						   document.getElementById('testcontent').textContent = str2;
+							var keyValues = Object.values(value);
+							var keyNames = Object.keys(value);
+					
+							for (var i in keyNames) {
+						   document.getElementById('item' + i).innerHTML = "<p>" + keyNames[i] + ": " + keyValues[i] + "</p>";
+						}
+						
 						}, function (error) {
 						   document.getElementById('testcontent').textContent = 'Database Error';
 						});
+
+						firebase.database().ref().update(updates["Yields/" + uid + "/bounty/apples"] = "newline!!!");
 
 
 		          		// [END_EXCLUDE]
@@ -87,7 +94,10 @@
   				<li><img src="img_basket/tomatoes.jpg" /></li>  
   				<li><img src="img_basket/potatoes.jpg" /></li>
 			</ul>
-			<div id="testcontent">Nothing!</div>
+			<div id="item0"></div>
+			<div id="item1"></div>
+			<div id="item2"></div>
+			<div id="item3"></div>
 		</div>
 	</body>      
 </html>
