@@ -1,6 +1,7 @@
 {
   "projects": {
     "CSAchat": "tinder-of-csa",
-    "Chat": "tinder-of-csa"
+    "Chat": "tinder-of-csa",
+    "chat": "tinder-of-csa"
   }
 }
