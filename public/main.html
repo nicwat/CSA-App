@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="/__/firebase/3.9.0/firebase-app.js"></script>
 		<script src="/__/firebase/3.9.0/firebase-auth.js"></script>
+		<script src="/__/firebase/3.9.0/firebase-database.js"></script>
+
 		<script src="/__/firebase/init.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+        <script src="js/jquery.bxslider.min.js"></script>
 		<script>
 			function signOut() {
 				firebase.auth().signOut().then(function() {
@@ -27,6 +31,7 @@
 					// [END_EXCLUDE]
 					if (user) {
 						// User is signed in.
+
 						var displayName = user.displayName;
 						var email = user.email;
 						var emailVerified = user.emailVerified;
@@ -34,19 +39,25 @@
 						var isAnonymous = user.isAnonymous;
 						var uid = user.uid;
 						var providerData = user.providerData;
+						var userRef = firebase.database().ref("Yields/" + uid + "/");
 						// [START_EXCLUDE]
-						//document.getElementById('quickstart-sign-in-status').textContent = 'Signed in!';
 						document.getElementById('users-name').textContent = displayName;
-						document.getElementById('quickstart-sign-in').textContent = 'Sign out';
-						window.location = 'main.html';
-
-						document.getElementById('member-content').textContent = 'Member Only Statement!';
-						document.getElementById('quickstart-sign-in2').disabled = true;
+                        $('.bxslider').bxSlider({
+  							infiniteLoop: false,
+  							hideControlOnEnd: true
+						});
 						
+						userRef.on("value", function(snapshot) {
+							var value = snapshot.val();
+							str = JSON.stringify(value);
+							var str2 = Object.values(value);
+						   console.log(value);
+						   document.getElementById('testcontent').textContent = str2;
+						}, function (error) {
+						   document.getElementById('testcontent').textContent = 'Database Error';
+						});
 
-						if (!emailVerified) {
-		            		document.getElementById('quickstart-verify-email').disabled = false;
-		         		}
+
 		          		// [END_EXCLUDE]
 		    		} else {
 		        		// User is signed out.
@@ -55,7 +66,7 @@
 		        		// [END_EXCLUDE]
 		        	}
 		        	// [START_EXCLUDE silent]
-		      		document.getElementById('quickstart-sign-in').disabled = false;
+		      		//document.getElementById('quickstart-sign-in').disabled = false;
 		        	// [END_EXCLUDE]
 		      	});  
 		    }
@@ -68,7 +79,14 @@
 	<body>
 		<div id="users-only">
 			<button id="sign-out">Sign out</button>
-				<p>Welcome, <span id="users-name">No User Name</span>!!</p>
+				<p>Welcome, <span id="users-name"> </span>!!</p>
+             <ul class="bxslider">
+ 				<li><img src="img_basket/apples.jpg" /></li>
+  				<li><img src="img_basket/whitemushrooms.jpg" /></li>  
+  				<li><img src="img_basket/tomatoes.jpg" /></li>  
+  				<li><img src="img_basket/potatoes.jpg" /></li>
+			</ul>
+			<div id="testcontent">Nothing!</div>
 		</div>
-	</body>
+	</body>      
 </html>
