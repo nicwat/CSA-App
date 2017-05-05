@@ -2,14 +2,14 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="csa.css">
 		<script src="/__/firebase/3.9.0/firebase-app.js"></script>
 		<script src="/__/firebase/3.9.0/firebase-auth.js"></script>
 		<script src="/__/firebase/3.9.0/firebase-database.js"></script>
 
 		<script src="/__/firebase/init.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-
-        <script src="js/jquery.bxslider.min.js"></script>
+        <!-- <script src="js/jquery.bxslider.min.js"></script> -->
 		<script>
 			function signOut() {
 				firebase.auth().signOut().then(function() {
@@ -30,10 +30,7 @@
 					// document.getElementById('quickstart-verify-email').disabled = true;
 					// [END_EXCLUDE]
 					if (user) {
-						
-
 						// User is signed in.
-
 						var displayName = user.displayName;
 						var email = user.email;
 						var emailVerified = user.emailVerified;
@@ -44,27 +41,69 @@
 						var userRef = firebase.database().ref("Yields/" + uid + "/bounty");
 						// [START_EXCLUDE]
 						document.getElementById('users-name').textContent = displayName;
-                        $('.bxslider').bxSlider({
-  							infiniteLoop: false,
-  							hideControlOnEnd: true
-						});
-						
 						userRef.on("value", function(snapshot) {
-							var value = snapshot.val();
-							var keyValues = Object.values(value);
+							value = snapshot.val();
+							keyValues = Object.values(value);
 							var keyNames = Object.keys(value);
 					
 							for (var i in keyNames) {
-						   document.getElementById('item' + i).innerHTML = "<p>" + keyNames[i] + ": " + keyValues[i] + "</p>";
-						}
+								document.getElementById('item' + i).innerHTML = "<p>" + keyNames[i] + ": " + keyValues[i] + "</p>";
+							}
 						
 						}, function (error) {
 						   document.getElementById('testcontent').textContent = 'Database Error';
 						});
+						var grabitem0 = document.getElementById('item0');
+						var grabitem1 = document.getElementById('item1');
+						var grabitem2 = document.getElementById('item2');
+						var grabitem3 = document.getElementById('item3');
 
-						firebase.database().ref().update(updates["Yields/" + uid + "/bounty/apples"] = "newline!!!");
+						grabitem0.addEventListener('click', function(event) {
+							if (keyValues[0] == "false") {
+								userRef.update({
+    								apples: "true"
+								});	
+							} else if (keyValues[0] == "true") {
+								userRef.update({
+    								apples: "false"
+								});
+							}
+						})
 
-
+						grabitem1.addEventListener('click', function(event) {
+							if (keyValues[1] == "false") {
+								userRef.update({
+    								mushrooms: "true"
+								});	
+							} else if (keyValues[1] == "true") {
+								userRef.update({
+    								mushrooms: "false"
+								});
+							}
+						})
+						grabitem2.addEventListener('click', function(event) {
+							if (keyValues[2] == "false") {
+								userRef.update({
+    								potatoes: "true"
+								});	
+							} else if (keyValues[2] == "true") {
+								userRef.update({
+    								potatoes: "false"
+								});
+							}
+						})
+						grabitem3.addEventListener('click', function(event) {
+							if (keyValues[3] == "false") {
+								userRef.update({
+    								tomatoes: "true"
+								});	
+							} else if (keyValues[3] == "true") {
+								userRef.update({
+    								tomatoes: "false"
+								});
+							}
+						})
+							
 		          		// [END_EXCLUDE]
 		    		} else {
 		        		// User is signed out.
@@ -86,18 +125,26 @@
 	<body>
 	<h1 class="title">Farmer Jack's Tender</h1>
 		<div id="users-only" class="main">
-			<button id="sign-out">Sign out</button>
+			<button id="sign-out" class="btn">Sign out</button>
 				<p>Welcome, <span id="users-name"> </span>!!</p>
-             <ul class="bxslider">
- 				<li><img src="img_basket/apples.jpg" /></li>
-  				<li><img src="img_basket/whitemushrooms.jpg" /></li>  
-  				<li><img src="img_basket/tomatoes.jpg" /></li>  
-  				<li><img src="img_basket/potatoes.jpg" /></li>
-			</ul>
-			<div id="item0"></div>
-			<div id="item1"></div>
-			<div id="item2"></div>
-			<div id="item3"></div>
+				<div id="item0"></div>
+				<div id="item1"></div>
+				<div id="item2"></div>
+				<div id="item3"></div>
+			
+				<div class="cardcontainer list">
+  					<ul class="cardlist">
+   
+    <li class="card current"> <img src="img_basket/apples.jpg" alt="Apples" ></li>
+    <li class="card"><img src="img_basket/potatoes.jpg" alt="Potatoes" ></li>
+    <li class="card"><img src="img_basket/tomatoes.jpg" alt="Tomatoes" ></li>
+    <li class="card"><img src="img_basket/whitemushrooms.jpg" alt="Mushrooms"></li>
+    
+  </ul>
+  <button class="Reject">X</button>
+  <button class="Accept">✔</button>
+</div>
+</div>
 		</div>
 	</body>      
 </html>
